@@ -1,0 +1,34 @@
+/**
+ * minimap.less
+ * ----------------------------------------------------------------------------
+ * Styles for the 'minimap' package, to better match the theme.
+ *
+ * Purplest, Inc. Syntax [1.0.0]
+ * (https://github.com/PurplestInc/purplest-inc-syntax/styles/minimap.less)
+ *
+ * Maintained by: Purplest, Inc.
+ * (https://github.com/PurplestInc)
+ * (https://github.com/RobDukarski)
+ *
+ * @version 1.0.0 (06/02/16)
+ * @license MIT
+ * @copyright (c) 2016 Purplest, Inc.
+ * (https://purplest.com)
+ * ============================================================================
+ */
+
+@import "syntax-variables";
+
+atom-text-editor,
+atom-text-editor.editor {
+  .vertical-scrollbar {
+    border-right: 1px solid @syntax-border-color;
+    right: 0;
+  	width: 6px;
+  }
+
+  atom-text-editor-minimap .minimap-visible-area,
+  atom-text-editor-minimap.editor .minimap-visible-area {
+    background-color: fade(lighten(@background, 25%), 50%);
+  }
+}

@@ -1,0 +1,129 @@
+/**
+ * syntax-variables.less
+ * ----------------------------------------------------------------------------
+ * Variables for styling the syntax within the Atom text editor.
+ *
+ * Purplest, Inc. Syntax [1.0.0]
+ * (https://github.com/PurplestInc/purplest-inc-syntax/styles/syntax-variables.less)
+ *
+ * Maintained by: Purplest, Inc.
+ * (https://github.com/PurplestInc)
+ * (https://github.com/RobDukarski)
+ *
+ * @version 1.0.0 (06/02/16)
+ * @license MIT
+ * @copyright (c) 2016 Purplest, Inc.
+ * (https://purplest.com)
+ * ============================================================================
+ */
+
+@import "colors";
+
+// @theme-type: "dark";
+//
+// .variables() when (@theme-type = "dark") {
+  // General colors
+
+  @syntax-background-color: @background;
+  @syntax-border-color: darken(@background, 3.5%);
+  @syntax-cursor-color: @white;
+  @syntax-indent-guide-color: fade(lighten(@background, 25%), 15%);
+  @syntax-invisible-character-color: fade(lighten(@background, 15%), 15%);
+  @syntax-selection-color: fade(lighten(@background, 25%), 25%);
+  @syntax-selection-flash-color: fade(lighten(@background, 25%), 25%);
+  @syntax-text-shadow-color-dark: fade(darken(@background, 25%), 25%);
+  @syntax-text-shadow-color-light: fade(darken(@background, 25%), 15%);
+  @syntax-wrap-guide-color: fade(lighten(@background, 25%), 15%);
+
+  // Gutter
+
+  @syntax-gutter-background-color: lighten(@background, 2.25%);
+  @syntax-gutter-background-color-selected: @syntax-selection-color;
+  @syntax-gutter-background-color-selected-hover: fade(lighten(@background, 25%), 45%);
+  @syntax-gutter-background-highlight: @syntax-selection-color;
+  @syntax-gutter-text-color: lighten(@background, 50%);
+  @syntax-gutter-text-color-selected: screen(@base, lighten(@background, 25%));
+  @syntax-gutter-text-highlight: screen(@base, lighten(@background, 25%));
+  @syntax-gutter-text-shadow-color-dark: fade(darken(@background, 15%), 35%);
+  @syntax-gutter-text-shadow-color-light: fade(darken(@background, 15%), 25%);
+// }
+
+// .variables() when (@theme-type = "light") {
+//   @background: #e4e4e4;
+//
+//   // General colors
+//
+//   @syntax-background-color: @background;
+//   @syntax-border-color: darken(@background, 20%);
+//   @syntax-cursor-color: @white;
+//   @syntax-indent-guide-color: rgba(0, 0, 0, .1);
+//   @syntax-selection-color: rgba(0, 0, 0, .05);
+//   @syntax-selection-flash-color: rgba(0, 0, 0, .05);
+//   @syntax-text-shadow-color-dark: rgba(0, 0, 0, .15);
+//   @syntax-text-shadow-color-light: rgba(255, 255, 255, .5);
+//   @syntax-wrap-guide-color: rgba(0, 0, 0, .1);
+//
+//   // Gutter
+//
+//   @syntax-gutter-background-color: darken(@background, 5.5%);
+//   @syntax-gutter-background-color-selected-hover: rgba(0, 0, 0, .1);
+//   @syntax-gutter-background-highlight: @syntax-selection-color;
+//   @syntax-gutter-text-color: #444;
+//   @syntax-gutter-text-color-selected: multiply(@base, darken(@background, 25%));
+//   @syntax-gutter-text-highlight: multiply(@base, darken(@background, 25%));
+//   @syntax-gutter-text-shadow-color-dark: rgba(0, 0, 0, .25);
+//   @syntax-gutter-text-shadow-color-light: rgba(255, 255, 255, .25);
+// }
+//
+// .variables();
+
+// For find and replace markers
+@syntax-result-marker-color: @light-gray;
+@syntax-result-marker-color-selected: white;
+
+// For git diff info. i.e. in the gutter
+
+@syntax-color-added: #a8ff60;
+@syntax-color-modified: #e9c062;
+@syntax-color-removed: #cc6666;
+@syntax-color-renamed: #96cbfe;
+
+// Syntax
+
+@syntax-assignment: @light-base;
+@syntax-brackets: @lightest-base;
+@syntax-class: @base;
+@syntax-comment: @comments;
+@syntax-console: @dark-base;
+@syntax-constant: @lighter-base;
+@syntax-control: @brighter-base;
+@syntax-element-attr: @brightest-base;
+@syntax-embedded: @lightest-base;
+@syntax-entity: @base;
+@syntax-text-color: @lightest-base;
+@syntax-function: @brighter-base;
+@syntax-function-param: @light-base;
+@syntax-id: @base;
+@syntax-identifier: @lighter-base;
+@syntax-keyword: @bright-base;
+@syntax-meta: @syntax-text-color;
+@syntax-mixin: @dark-base;
+@syntax-modifier: @lighter-base;
+@syntax-numeric: @base;
+@syntax-object: @base;
+@syntax-operator: @light-base;
+@syntax-property: @brighter-base;
+@syntax-pseudo: @brighter-base;
+@syntax-punctuation: @lighter-base;
+@syntax-storage: @light-base;
+@syntax-string: @lighter-base;
+@syntax-string-definition: @brightest-base;
+@syntax-support: @brighter-base;
+@syntax-tag-entity: @light-base;
+@syntax-tag: @base;
+@syntax-tag-definition: @light-base;
+@syntax-type: @brightest-base;
+@syntax-unit: @brightest-base;
+@syntax-variable: @brightest-base;
+
+@syntax-error: @red;

@@ -1,0 +1,51 @@
+/**
+ * css.less
+ * ----------------------------------------------------------------------------
+ * Styles for CSS syntax within the Atom text editor.
+ *
+ * Purplest, Inc. Syntax [1.0.0]
+ * (https://github.com/PurplestInc/purplest-inc-syntax/styles/languages/css.less)
+ *
+ * Maintained by: Purplest, Inc.
+ * (https://github.com/PurplestInc)
+ * (https://github.com/RobDukarski)
+ *
+ * @version 1.0.0 (06/02/16)
+ * @license MIT
+ * @copyright (c) 2016 Purplest, Inc.
+ * (https://purplest.com)
+ * ============================================================================
+ */
+
+// CSS
+
+.syntax--source.syntax--css {
+  .syntax--attribute-name.syntax--entity + .syntax--property-value {
+    color: @syntax-element-attr;
+  }
+
+  .syntax--class.syntax--entity.syntax--other.syntax--attribute-name {
+    color: @syntax-class;
+  }
+
+  .syntax--entity.syntax--other.syntax--attribute-name,
+  .syntax--entity.syntax--other.syntax--pseudo-class,
+  .syntax--support.syntax--property-value {
+    color: @syntax-property;
+  }
+
+  .syntax--operator {
+    color: @syntax-operator;
+  }
+
+  .syntax--meta.syntax--property-value,
+  .syntax--punctuation {
+    color: @syntax-text-color;
+  }
+
+  .syntax--string {
+    .syntax--definition {
+      color: @syntax-string-definition;
+    }
+  }
+}

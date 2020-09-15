@@ -1,0 +1,14 @@
+{
+  "description": "Tiberius Syntax - A purple syntax theme for the Atom text editor.",
+  "homepage": "https://github.com/TiberiusUI/atom-tiberius-syntax#readme",
+  "keywords": [
+    "light",
+    "purple",
+    "syntax",
+    "theme"
+  ],
+  "license": "MIT",
+  "name": "tiberius-syntax",
+  "theme": "syntax",
+  "version": "1.0.0"
+}

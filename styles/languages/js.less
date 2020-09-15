@@ -1,0 +1,70 @@
+/**
+ * js.less
+ * ----------------------------------------------------------------------------
+ * Styles for CoffeeScript & JavaScript syntax within the Atom text editor.
+ *
+ * Purplest, Inc. Syntax [1.0.0]
+ * (https://github.com/PurplestInc/purplest-inc-syntax/styles/languages/js.less)
+ *
+ * Maintained by: Purplest, Inc.
+ * (https://github.com/PurplestInc)
+ * (https://github.com/RobDukarski)
+ *
+ * @version 1.0.0 (06/02/16)
+ * @license MIT
+ * @copyright (c) 2016 Purplest, Inc.
+ * (https://purplest.com)
+ * ============================================================================
+ */
+
+// CoffeeScript/JavaScript
+
+.syntax--source.syntax--coffee,
+.syntax--source.syntax--js {
+  color: @syntax-variable;
+
+  .syntax--assignment {
+    color: @syntax-assignment;
+  }
+
+  .syntax--class {
+    color: @syntax-class;
+
+    & + .syntax--period + .syntax--function {
+      color: @syntax-function;
+    }
+  }
+
+  .syntax--console.syntax--type {
+    color: @syntax-console;
+  }
+
+  .syntax--function.syntax--entity.syntax--name {
+    color: @syntax-function;
+  }
+
+  .syntax--keyword,
+  .syntax--storage.syntax--type {
+    color: @syntax-constant;
+  }
+
+  .syntax--operator {
+    color: @syntax-operator;
+  }
+
+  .syntax--string {
+    color: @light-base;
+
+    &.syntax--definition.syntax--punctuation {
+      color: @syntax-string-definition;
+    }
+
+    .syntax--embedded.syntax--source {
+      color: @syntax-embedded;
+    }
+  }
+
+  .syntax--variable.syntax--parameter.syntax--function {
+    color: @syntax-text-color;
+  }
+}

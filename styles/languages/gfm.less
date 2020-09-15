@@ -1,0 +1,38 @@
+/**
+ * gfm.less
+ * ----------------------------------------------------------------------------
+ * Styles for GFM syntax within the Atom text editor.
+ *
+ * Purplest, Inc. Syntax [1.0.0]
+ * (https://github.com/PurplestInc/purplest-inc-syntax/styles/languages/gfm.less)
+ *
+ * Maintained by: Purplest, Inc.
+ * (https://github.com/PurplestInc)
+ * (https://github.com/RobDukarski)
+ *
+ * @version 1.0.0 (06/02/16)
+ * @license MIT
+ * @copyright (c) 2016 Purplest, Inc.
+ * (https://purplest.com)
+ * ============================================================================
+ */
+
+// GitHub Flavored Markdown
+
+.syntax--source.syntax--gfm {
+  .syntax--markup {
+    -webkit-font-smoothing: auto;
+
+    &.syntax--heading {
+      color: @base;
+    }
+
+    &.syntax--link {
+      color: @brighter-base;
+    }
+  }
+
+  .syntax--link .syntax--entity {
+    color: @light-base;
+  }
+}

@@ -1,0 +1,36 @@
+/**
+ * less.less
+ * ----------------------------------------------------------------------------
+ * Styles for LESS syntax within the Atom text editor.
+ *
+ * Purplest, Inc. Syntax [1.0.0]
+ * (https://github.com/PurplestInc/purplest-inc-syntax/styles/languages/less.less)
+ *
+ * Maintained by: Purplest, Inc.
+ * (https://github.com/PurplestInc)
+ * (https://github.com/RobDukarski)
+ *
+ * @version 1.0.0 (06/02/16)
+ * @license MIT
+ * @copyright (c) 2016 Purplest, Inc.
+ * (https://purplest.com)
+ * ============================================================================
+ */
+
+// Less
+
+.syntax--source.syntax--less {
+  .syntax--entity.syntax--mixin {
+    color: @syntax-mixin;
+  }
+
+  .syntax--source,
+  .syntax--source .syntax--meta.syntax--property-value {
+    color: @syntax-element-attr;
+  }
+
+  .syntax--variable + .syntax--separator + .syntax--variable,
+  .syntax--variable ~ .syntax--property-value .syntax--variable {
+    color: darken(@syntax-variable, 15%);
+  }
+}

@@ -1,0 +1,58 @@
+/**
+ * colors.less
+ * ----------------------------------------------------------------------------
+ * Colors for the syntax within the Atom text editor.
+ *
+ * Purplest, Inc. Syntax [1.0.0]
+ * (https://github.com/PurplestInc/purplest-inc-syntax/styles/colors.less)
+ *
+ * Maintained by: Purplest, Inc.
+ * (https://github.com/PurplestInc)
+ * (https://github.com/RobDukarski)
+ *
+ * @version 1.0.0 (06/02/16)
+ * @license MIT
+ * @copyright (c) 2016 Purplest, Inc.
+ * (https://purplest.com)
+ * ============================================================================
+ */
+
+@very-light-gray: #c5c8c6;
+@light-gray: #969896;
+@gray: #4b574c;
+@dark-gray: #282a2e;
+@very-dark-gray: #1d1f21;
+
+@black: #000;
+@white: #fff;
+
+// Red = #b90010
+// Orange = #b96b00
+// Yellow = #b9b900
+// Green = #10b900
+// Blue = #1000b9
+// Purplest, Inc. = #6b00b9
+
+@accent: #6b00b9;
+@background: darken(#3b3b3b, 12.75%);
+@comments: lighten(desaturate(@background, 50%), 25%);
+
+@primary: @accent;
+@primary-hover: lighten(@primary, 15%);
+@primary-active: darken(@primary, 15%);
+
+@secondary: lighten(@primary, 25%);
+@secondary-hover: lighten(@secondary, 10%);
+@secondary-active: darken(@secondary, 10%);
+
+@lightest-base: lighten(desaturate(@primary, 35%), 42%);
+@lighter-base: lighten(desaturate(@primary, 30%), 37%);
+@light-base: lighten(desaturate(@primary, 25%), 32%);
+@brightest-base: lighten(desaturate(@primary, 20%), 27%);
+@brighter-base: lighten(desaturate(@primary, 15%), 22%);
+@bright-base: lighten(desaturate(@primary, 10%), 17%);
+@base: lighten(desaturate(@primary, 35%), 10%);
+@dark-base: lighten(desaturate(@primary, 15%), 5%);
+@darker-base: desaturate(@primary, 45%);
+
+@red: #ff4040;

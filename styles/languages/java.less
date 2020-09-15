@@ -1,0 +1,98 @@
+/**
+ * java.less
+ * ----------------------------------------------------------------------------
+ * Styles for JAVA syntax within the Atom text editor.
+ *
+ * Purplest, Inc. Syntax [1.0.0]
+ * (https://github.com/PurplestInc/purplest-inc-syntax/styles/languages/java.less)
+ *
+ * Maintained by: Purplest, Inc.
+ * (https://github.com/PurplestInc)
+ * (https://github.com/RobDukarski)
+ *
+ * @version 1.0.0 (06/02/16)
+ * @license MIT
+ * @copyright (c) 2016 Purplest, Inc.
+ * (https://purplest.com)
+ * ============================================================================
+ */
+
+// JAVA
+
+.syntax--source.syntax--java {
+  .syntax--class > .syntax--modifier:first-child,
+  .syntax--method > .syntax--modifier.syntax--storage {
+    color: @syntax-tag;
+  }
+
+  .syntax--entity.syntax--name.syntax--type,
+  .syntax--entity.syntax--inherited-class {
+    color: @brighter-base;
+  }
+
+  .syntax--keyword {
+    color: @syntax-keyword;
+  }
+
+  .syntax--keyword.syntax--operator {
+    color: @syntax-operator;
+  }
+  .syntax--meta.syntax--identifier,
+  .syntax--meta.syntax--implemented,
+  .syntax--meta.syntax--inherited, {
+    .syntax--storage.syntax--modifier {
+      color: @syntax-identifier;
+    }
+  }
+
+  .syntax--meta.syntax--identifier {
+    color: @syntax-text-color;
+  }
+
+  .syntax--meta.syntax--variable.syntax--name {
+    color: @syntax-identifier;
+  }
+
+  .syntax--method {
+    color: @brightest-base;
+  }
+
+  .syntax--method.syntax--body {
+    color: @brighter-base;
+  }
+
+  .syntax--punctuation.syntax--definition,
+  .syntax--punctuation.syntax--section,
+  .syntax--variable.syntax--definition {
+    color: @syntax-text-color;
+  }
+
+  .syntax--return-type {
+    .syntax--storage.syntax--type {
+      color: @syntax-type;
+    }
+  }
+
+  .syntax--storage.syntax--modifier,
+  .syntax--storage.syntax--modifier ~ .syntax--storage.syntax--modifier {
+    color: @syntax-type;
+  }
+
+  .syntax--storage.syntax--type {
+    color: @base;
+  }
+
+  .syntax--storage.syntax--type.syntax--generic {
+    color: @syntax-identifier;
+
+    .syntax--storage.syntax--type {
+      color: @syntax-type;
+    }
+  }
+
+  .syntax--string {
+    .syntax--definition {
+      color: @syntax-string-definition;
+    }
+  }
+}

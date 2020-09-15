@@ -1,0 +1,43 @@
+/**
+ * cs.less
+ * ----------------------------------------------------------------------------
+ * Styles for C# syntax within the Atom text editor.
+ *
+ * Purplest, Inc. Syntax [1.0.0]
+ * (https://github.com/PurplestInc/purplest-inc-syntax/styles/languages/cs.less)
+ *
+ * Maintained by: Purplest, Inc.
+ * (https://github.com/PurplestInc)
+ * (https://github.com/RobDukarski)
+ *
+ * @version 1.0.0 (06/02/16)
+ * @license MIT
+ * @copyright (c) 2016 Purplest, Inc.
+ * (https://purplest.com)
+ * ============================================================================
+ */
+
+// C#
+
+.syntax--source.syntax--cs {
+  .syntax--meta.syntax--method.syntax--source {
+    color: @syntax-tag;
+
+    .syntax--method-call .syntax--meta.syntax--method.syntax--source {
+      color: @syntax-function;
+    }
+  }
+
+  .syntax--meta.syntax--method.syntax--source.syntax--identifier,
+  .syntax--punctuation {
+    color: @syntax-text-color;
+  }
+
+  .syntax--storage.syntax--modifier {
+    color: @syntax-modifier;
+
+    .syntax--storage.syntax--type {
+      color: @syntax-type;
+    }
+  }
+}

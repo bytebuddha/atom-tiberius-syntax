@@ -1,0 +1,91 @@
+/**
+ * autocomplete-plus.less
+ * ----------------------------------------------------------------------------
+ * Styles for the 'autocomplete-plus' package, to better match the theme.
+ *
+ * Purplest, Inc. Syntax [1.0.0]
+ * (https://github.com/PurplestInc/purplest-inc-syntax/styles/autocomplete-plus.less)
+ *
+ * Maintained by: Purplest, Inc.
+ * (https://github.com/PurplestInc)
+ * (https://github.com/RobDukarski)
+ *
+ * @version 1.0.0 (06/02/16)
+ * @license MIT
+ * @copyright (c) 2016 Purplest, Inc.
+ * (https://purplest.com)
+ * ============================================================================
+ */
+
+atom-text-editor,
+atom-text-editor.editor {
+  autocomplete-suggestion-list {
+    &.select-list.popover-list .suggestion-description-more-link {
+      color: @secondary;
+
+      &:hover {
+        color: @secondary-hover;
+      }
+
+      &:active {
+        color: @secondary-active;
+      }
+    }
+  }
+
+  // atom-text-editor[data-grammar*='less'] {
+  //   autocomplete-suggestion-list {
+  //     .make-type-icon(attribute, @syntax-css-color-attribute);
+  //     .make-type-icon(builtin, @syntax-css-color-keyword);
+  //     .make-type-icon(class, @syntax-css-color-class);
+  //     .make-type-icon(constant, @syntax-css-color-constant);
+  //     .make-type-icon(function, @syntax-css-color-function);
+  //     .make-type-icon(import, @syntax-css-color-import);
+  //     .make-type-icon(keyword, @syntax-css-color-keyword);
+  //     .make-type-icon(method, @syntax-css-color-method);
+  //     .make-type-icon(module, @syntax-css-color-import);
+  //     .make-type-icon(mixin, @syntax-css-color-mixin);
+  //     .make-type-icon(package, @syntax-css-color-import);
+  //     .make-type-icon(property, @syntax-css-color-property);
+  //     .make-type-icon(require, @syntax-css-color-import);
+  //     .make-type-icon(snippet, @syntax-css-color-snippet);
+  //     .make-type-icon(tag, @syntax-css-color-tag);
+  //     .make-type-icon(type, @syntax-css-color-class);
+  //     .make-type-icon(value, @syntax-css-color-value);
+  //     .make-type-icon(variable, @syntax-css-color-variable);
+  //     .make-type-icon(selector, @syntax-css-color-attribute);
+  //     .make-type-icon(pseudo-selector, @syntax-css-color-pseudo);
+  //   }
+  // }
+
+  autocomplete-suggestion-list {
+    .make-type-icon(syntax--attribute, @syntax-element-attr);
+    .make-type-icon(syntax--builtin, @syntax-keyword);
+    .make-type-icon(syntax--class, @syntax-class);
+    .make-type-icon(syntax--constant, @syntax-constant);
+    .make-type-icon(syntax--function, @syntax-function);
+    .make-type-icon(syntax--import, @syntax-keyword);
+    .make-type-icon(syntax--keyword, @syntax-keyword);
+    .make-type-icon(syntax--method, @syntax-class);
+    .make-type-icon(syntax--mixin, @syntax-mixin);
+    .make-type-icon(syntax--module, @syntax-keyword);
+    .make-type-icon(syntax--package, @syntax-keyword);
+    .make-type-icon(syntax--property, @syntax-support);
+    .make-type-icon(syntax--pseudo-selector, @syntax-pseudo);
+    .make-type-icon(syntax--require, @syntax-keyword);
+    .make-type-icon(syntax--selector, @syntax-string);
+    .make-type-icon(syntax--snippet, @syntax-support);
+    .make-type-icon(syntax--tag, @syntax-tag);
+    .make-type-icon(syntax--type, @syntax-class);
+    .make-type-icon(syntax--value, @syntax-support);
+    .make-type-icon(syntax--variable, @syntax-variable);
+  }
+}
+
+.make-type-icon(@type, @color) {
+  .syntax--icon.@{type} {
+    background: fadeout(@color, 80%);
+    color: @color;
+
+  }
+}

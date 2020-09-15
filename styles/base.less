@@ -1,0 +1,649 @@
+/**
+ * base.less
+ * ----------------------------------------------------------------------------
+ * Styles for the syntax within the Atom text editor.
+ *
+ * Purplest, Inc. Syntax [1.0.0]
+ * (https://github.com/PurplestInc/purplest-inc-syntax/styles/base.less)
+ *
+ * Maintained by: Purplest, Inc.
+ * (https://github.com/PurplestInc)
+ * (https://github.com/RobDukarski)
+ *
+ * @version 1.0.0 (06/02/16)
+ * @license MIT
+ * @copyright (c) 2016 Purplest, Inc.
+ * (https://purplest.com)
+ * ============================================================================
+ */
+
+
+atom-text-editor.editor,
+atom-text-editor {
+  color: @syntax-text-color;
+
+  .cursor {
+    border-color: @syntax-cursor-color;
+    border-left: solid 1px;
+  }
+
+  // Gutter
+
+  .gutter-container {
+    border-right: 1px solid @syntax-border-color;
+  }
+
+  .gutter {
+    color: @syntax-gutter-text-color;
+
+    .line-number {
+      color: @syntax-gutter-text-color;
+      cursor: pointer;
+      text-shadow:  1px  0   0 @syntax-gutter-text-shadow-color-light,
+                   -1px  0   0 @syntax-gutter-text-shadow-color-light,
+                    0    1px 0 @syntax-gutter-text-shadow-color-light,
+                    0   -1px 0 @syntax-gutter-text-shadow-color-dark;
+
+      &.cursor-line {
+        background-color: @syntax-gutter-background-color-selected;
+        box-shadow: inset 2px   0   0 0 @primary,
+                    inset 3px   0   0 0 @syntax-border-color,
+                    inset 0    -1px 0 0 @syntax-border-color;
+        color: @syntax-gutter-text-color-selected;
+        font-weight: 100;
+
+        &:hover {
+          background-color: @syntax-gutter-background-color-selected-hover;
+          box-shadow: inset 2px  0   0 0 @primary,
+                      inset 3px  0   0 0 @syntax-border-color;
+          color: lighten(@syntax-gutter-text-color-selected, 5%);
+        }
+
+        &:first-child {
+          box-shadow: inset 2px  0   0 0 @primary,
+                      inset 3px  0   0 0 @syntax-border-color;
+        }
+
+        &:first-child + .cursor-line {
+          box-shadow: inset 2px   0   0 0 @primary,
+                      inset 3px   0   0 0 @syntax-border-color;
+        }
+
+        &:first-child + .line-number:not(.cursor-line)::before {
+          background-color: darken(@syntax-border-color, 5.5%);
+          box-shadow: inset 2px   0   0 0 @primary,
+                      inset 3px   0   0 0 @syntax-border-color;
+          content: '';
+          height: 1px;
+          left: 0;
+          position: absolute;
+          top: -1px;
+          width: 100%;
+          z-index: 9999;
+        }
+
+        & ~ .cursor-line {
+          box-shadow: inset 2px   0   0 0 @primary,
+                      inset 3px   0   0 0 @syntax-border-color,
+                      inset 0    -1px 0 0 @syntax-border-color;
+        }
+
+        & ~ .cursor-line:last-child,
+        & ~ .cursor-line:last-child:hover {
+          box-shadow: inset 2px   0   0 0 @primary,
+                      inset 3px   0   0 0 @syntax-border-color;
+        }
+
+        & + .cursor-line:last-child {
+          box-shadow: inset 2px   0   0 0 @primary,
+                      inset 3px   0   0 0 @syntax-border-color;
+        }
+
+        & ~ .cursor-line:hover {
+          box-shadow: inset 2px  0   0 0 @primary,
+                      inset 3px  0   0 0 @syntax-border-color,
+                      inset 0   -1px 0 0 @syntax-border-color;
+        }
+
+        &:first-child + .cursor-line:hover {
+          box-shadow: inset 2px  0   0 0 @primary,
+                      inset 3px  0   0 0 @syntax-border-color;
+        }
+
+        & + .line-number:not(.cursor-line):hover {
+          box-shadow: inset 0 -1px 0 0 @syntax-border-color;
+        }
+
+        & + .line-number:not(.cursor-line):hover::before {
+          box-shadow: inset 2px   0   0 0 @primary,
+                      inset 3px   0   0 0 @syntax-border-color;
+          content: '';
+          height: 1px;
+          left: 0;
+          position: absolute;
+          top: -1px;
+          width: 100%;
+          z-index: 9999;
+        }
+      }
+
+      &.cursor-line-no-selection {
+        background-color: @syntax-gutter-background-color-selected;
+        color: @syntax-gutter-text-color-selected;
+      }
+
+      &.foldable > .icon-right::before {
+        visibility: visible;
+      }
+
+      &.foldable:hover > .icon-right::before,
+      &.foldable.cursor-line > .icon-right::before {
+        opacity: 1;
+      }
+
+      .icon-right::before {
+        opacity: .5;
+        visibility: hidden;
+      }
+    }
+
+    .line-number:hover {
+      background-color: @syntax-gutter-background-color-selected;
+      color: @syntax-gutter-text-color-selected;
+    }
+
+    .line-number:not(.cursor-line):hover {
+      box-shadow: 0 0 0 1px @syntax-border-color;
+    }
+
+    // Get the last line number in a tile to not overlap the cursor-line below it...
+
+    div + div:hover > .line-number:not(.cursor-line):hover {
+
+    }
+
+    .line-number:not(.cursor-line):first-child:hover::before {
+      box-shadow: inset 126px   0 0 0 @syntax-border-color;
+      content: '';
+      height: 1px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 9999;
+    }
+
+    .line-number:not(.cursor-line):first-child:hover + .cursor-line::before {
+      box-shadow: inset 2px   0   0 0 @primary,
+                  inset 3px   0   0 0 @syntax-border-color,
+                  inset 126px   0 0 0 @syntax-border-color;
+      content: '';
+      height: 1px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 9999;
+    }
+
+    .line-number:not(.cursor-line) + .cursor-line {
+      box-shadow: inset 2px  0   0 0 @primary,
+                  inset 3px  0   0 0 @syntax-border-color;
+    }
+
+    .line-number:not(.cursor-line) + .cursor-line:last-child {
+      box-shadow: inset 2px   0   0 0 @primary,
+                  inset 3px   0   0 0 @syntax-border-color;
+    }
+
+    .cursor-line::before {
+      box-shadow: inset 2px   0   0 0 @primary,
+                  inset 3px   0   0 0 @syntax-border-color,
+                  inset 126px   0 0 0 @syntax-border-color;
+      content: '';
+      height: 1px;
+      left: 0;
+      position: absolute;
+      top: -1px;
+      width: 100%;
+      z-index: 9999;
+    }
+
+    .cursor-line:first-child::before {
+      box-shadow: inset 2px   0   0 0 @primary,
+                  inset 3px   0   0 0 @syntax-border-color,
+                  inset 126px   0 0 0 @syntax-border-color;
+      content: '';
+      height: 1px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 9999;
+    }
+
+    .cursor-line::after {
+      bottom: 0;
+      box-shadow: inset   2px   0 0 0 @primary,
+                  inset   3px   0 0 0 @syntax-border-color,
+                  inset 126px   0 0 0 @syntax-border-color;
+      content: '';
+      height: 1px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      z-index: 9999;
+    }
+
+    .cursor-line:last-child::after {
+      bottom: -1px;
+      box-shadow: inset   2px   0 0 0 @primary,
+                  inset   3px   0 0 0 @syntax-border-color,
+                  inset 126px   0 0 0 @syntax-border-color;
+      content: '';
+      height: 1px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      z-index: 9999;
+    }
+
+    .tile > .line-number.cursor-line:first-child {
+      box-shadow: inset 2px 0   0 0 @primary,
+                  inset 3px 0   0 0 @syntax-border-color,
+                  inset 0   1px 0 0 @syntax-border-color;
+    }
+
+    .tile > .line-number.cursor-line:last-child {
+      box-shadow: inset 2px 0   0 0 @primary,
+                  inset 3px 0   0 0 @syntax-border-color,
+                  inset 0   1px 0 0 @syntax-border-color,
+                        0   1px 0 0 @syntax-border-color;
+    }
+  }
+
+  .fold-marker:after,
+  .gutter .line-number:after,
+  .gutter .line-number.folded {
+    background: none;
+    color: @syntax-gutter-text-color-selected;
+  }
+
+  .indent-guide {
+    color: @syntax-wrap-guide-color;
+  }
+
+  .invisible {
+    color: @syntax-invisible-character-color;
+  }
+
+  .invisible-character {
+    color: @syntax-invisible-character-color;
+  }
+
+  .selection .region {
+    background-color: @syntax-selection-color;
+  }
+
+  span {
+    text-shadow: 0 -1px 0 @syntax-text-shadow-color-dark,
+                 0  1px 0 @syntax-text-shadow-color-light;
+  }
+
+  .wrap-guide {
+    background: @syntax-wrap-guide-color;
+  }
+}
+
+.atom-text-editor .search-results .syntax--marker .region {
+  background-color: transparent;
+  border: solid 1px @lighter-base;
+}
+
+.atom-text-editor .search-results .syntax--marker.current-result .region {
+  background-color: @syntax-selection-color;
+  border: solid 1px @lighter-base;
+}
+
+.atom-text-editor[mini] .scroll-view {
+  padding-left: 1px;
+}
+
+.bracket-matcher .syntax--region {
+  border-bottom: 1px solid @syntax-string;
+  margin-top: 1px;
+}
+
+.syntax--comment,
+.syntax--comment.syntax--block .syntax--punctuation.syntax--definition.syntax--comment,
+.syntax--comment.syntax--line .syntax--punctuation.syntax--definition.syntax--comment {
+  background: none;
+  color: @syntax-comment;
+  font-style: italic;
+}
+
+.syntax--constant {
+  color: @syntax-constant;
+
+  &.syntax--character.syntax--escape {
+    color: @syntax-constant;
+  }
+
+  &.syntax--numeric {
+    color: @syntax-numeric;
+  }
+
+  &.syntax--other.syntax--color {
+    color: @syntax-constant;
+  }
+
+  &.syntax--other.syntax--symbol {
+    color: @syntax-constant;
+  }
+}
+
+.syntax--entity {
+  color: @syntax-entity;
+
+  &.syntax--name.syntax--class,
+  &.syntax--name.syntax--type.syntax--class {
+    color: @syntax-entity;
+  }
+
+  &.syntax--name.syntax--function {
+    color: @syntax-entity;
+  }
+
+  &.syntax--other.syntax--inherited-class {
+    color: @syntax-entity;
+  }
+
+  &.syntax--name.syntax--section {
+    color: @syntax-entity;
+  }
+
+  &.syntax--name.syntax--tag {
+    color: @syntax-tag;
+    text-decoration: done;
+  }
+
+  &.syntax--name.syntax--type {
+    color: @syntax-entity;
+    text-decoration: none;
+  }
+
+  &.syntax--other.syntax--attribute-name {
+    color: @syntax-element-attr;
+
+    &.syntax--id {
+      color: @syntax-id;
+    }
+  }
+}
+
+.syntax--invalid.syntax--deprecated,
+.syntax--invalid.syntax--illegal {
+  background: none;
+  color: @syntax-error;
+}
+
+.syntax--keyword {
+  color: @syntax-keyword;
+
+  &.syntax--control {
+    color: @syntax-control;
+  }
+
+  &.syntax--operator {
+    color: @syntax-operator;
+  }
+
+  &.syntax--other.syntax--special-method {
+    color: @syntax-keyword;
+  }
+
+  &.syntax--other.syntax--unit {
+    color: @syntax-unit;
+  }
+}
+
+.syntax--line.syntax--cursor-line {
+  background: none;
+}
+
+// Markup
+
+.syntax--markup {
+  &.syntax--bold {
+    color: @syntax-text-color;
+    font-style: bold;
+  }
+
+  &.syntax--changed {
+    color: @syntax-text-color;
+  }
+
+  &.syntax--deleted {
+    color: @syntax-text-color;
+  }
+
+  &.syntax--italic {
+    color: @syntax-text-color;
+    font-style: italic;
+  }
+
+  &.syntax--heading .syntax--punctuation.syntax--definition.syntax--heading {
+    color: @syntax-text-color;
+  }
+
+  &.syntax--inserted {
+    color: @syntax-text-color;
+  }
+
+  &.syntax--list {
+    color: @syntax-text-color;
+  }
+
+  &.syntax--quote {
+    color: @syntax-text-color;
+  }
+
+  &.syntax--raw.syntax--inline {
+    color: @syntax-text-color;
+  }
+}
+
+.syntax--meta {
+  &.syntax--brace {
+    &.syntax--curly,
+    &.syntax--round,
+    &.syntax--square {
+      color: @syntax-brackets;
+    }
+  }
+
+  & .syntax--class {
+    color: @syntax-constant;
+  }
+
+  &.syntax--comma {
+    color: @syntax-punctuation;
+  }
+
+  &.syntax--function .syntax--definition {
+    color: @syntax-brackets;
+  }
+
+  &.syntax--link {
+    color: @syntax-meta;
+  }
+
+  &.syntax--require {
+    color: @syntax-meta;
+  }
+
+  &.syntax--selector {
+    color: @syntax-punctuation;
+  }
+
+  &.syntax--separator {
+    background-color: @syntax-punctuation;
+    color: @syntax-punctuation;
+  }
+}
+
+.syntax--meta.syntax--tag.syntax--inline,
+.syntax--meta.syntax--tag.syntax--inline .syntax--entity,
+.syntax--source .syntax--entity.syntax--name.syntax--tag,
+.syntax--source .syntax--entity.syntax--other.syntax--attribute-name {
+  color: @syntax-class;
+
+  &.syntax--tag,
+  &.syntax--tag .syntax--entity {
+    color: @syntax-tag-entity;
+  }
+}
+
+.syntax--none {
+  color: @syntax-text-color;
+}
+
+.syntax--punctuation {
+  &.syntax--definition {
+    color: @syntax-punctuation;
+
+    &.syntax--array,
+    &.syntax--parameters,
+    &.syntax--string,
+    &.syntax--variable {
+      color: @syntax-string-definition;
+    }
+
+    &.syntax--bold {
+      color: @syntax-text-color;
+      font-style: bold;
+    }
+
+    &.syntax--comment {
+      color: @syntax-comment;
+    }
+
+    &.syntax--heading,
+    &.syntax--identity {
+      color: @syntax-text-color;
+    }
+
+    &.syntax--italic {
+      color: @syntax-text-color;
+      font-style: italic;
+    }
+  }
+
+  &.syntax--section.syntax--embedded {
+    color: @syntax-text-color;
+  }
+
+  &.syntax--separator {
+    color: @syntax-punctuation;
+  }
+
+  &.syntax--terminator {
+    color: @syntax-punctuation;
+  }
+}
+
+.syntax--scroll-view {
+  padding-left: 0;
+}
+
+.syntax--source .syntax--string {
+  .syntax--punctuation.syntax--section.syntax--embedded {
+    color: @syntax-string;
+
+    .syntax--source {
+      color: @syntax-string;  // Required for the end of embedded strings in Ruby # 716
+    }
+  }
+
+  .syntax--source,
+  .syntax--meta.syntax--embedded.syntax--line {
+    color: @syntax-string;
+  }
+}
+
+.syntax--string {
+  color: @syntax-string;
+
+  .syntax--json {
+
+  }
+
+  .syntax--constant {
+    color: @syntax-string;
+  }
+
+  &.syntax--other.syntax--link {
+    color: @syntax-string;
+  }
+
+  &.syntax--regexp {
+    color: @syntax-string;
+
+    &.syntax--character-class,
+    &.syntax--group,
+    .syntax--constant.syntax--character.syntax--escape,
+    .syntax--source.syntax--ruby.syntax--embedded,
+    .syntax--string.syntax--regexp.syntax--arbitrary-repitition {
+      color: @syntax-string;
+    }
+
+  }
+
+  .syntax--variable {
+    color: @syntax-variable;
+  }
+}
+
+.syntax--storage {
+  color: @syntax-storage;
+
+  &.syntax--modifier {
+    color: @syntax-storage;
+  }
+}
+
+.syntax--support {
+  color: @syntax-support;
+
+  &.syntax--class {
+    color: @syntax-support;
+  }
+
+  &.syntax--constant {
+    color: @syntax-constant;
+  }
+
+  &.syntax--function  {
+    color: @syntax-support;
+
+    &.syntax--any-method {
+      color: @syntax-support;
+    }
+  }
+
+  &.syntax--type.syntax--property-name.syntax--css {
+    color: @syntax-support;
+  }
+}
+
+.syntax--variable {
+  color: @syntax-variable;
+
+  &.syntax--interpolation {
+    color: @syntax-variable;
+  }
+
+  &.syntax--parameter.syntax--function {
+    color: @syntax-function-param;
+  }
+}
